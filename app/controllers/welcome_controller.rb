@@ -10,13 +10,11 @@ class WelcomeController < ApplicationController
       conn.headers['app_id'] = ENV['OXFORD_ID']
       conn.headers['app_key'] = ENV['SCRABBLE_KEY']
     end
-    @body = JSON.parse(@resp.body)
-
-    if @body['results']
-      @message = "'#{@body['results'][0]['id']}' is a valid word and its root form is '#{@body['results'][0]["lexicalEntries"][0]['inflectionOf'][0]['text']}'."
+    if @resp.body.include?('404 Not Found')
+      @message = "'#{@word}' is not a valid word."
     else
-      @message = "'foxez' is not a valid word."
+      @body = JSON.parse(@resp.body)
+      @message = "'#{@body['results'][0]['id']}' is a valid word and its root form is '#{@body['results'][0]["lexicalEntries"][0]['inflectionOf'][0]['text']}'."
     end
-    binding.pry
   end
 end
