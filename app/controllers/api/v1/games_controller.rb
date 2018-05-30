@@ -1,6 +1,6 @@
 class Api::V1::GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
-    @game.game_stats
+    render json: @game.game_stats.to_json
   end
 end

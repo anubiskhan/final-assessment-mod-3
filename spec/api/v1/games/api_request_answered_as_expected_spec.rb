@@ -16,7 +16,7 @@ describe 'I' do
 
       get '/api/v1/games/1'
 
-      binding.pry
+      expect(response.body).to eq("{\"game_id\":1,\"scores\":[{\"user_id\":1,\"score\":15},{\"user_id\":2,\"score\":15}]}")
     end
   end
 end
