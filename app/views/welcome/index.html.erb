@@ -1,3 +1,4 @@
-
-<%= render partial: "/validations/new.html.erb" %>
-<%= render partial: "/validations/show.html.erb" %>
+<%= form_tag new_welcome_path, method: 'get' do %>
+    <%= text_field_tag :q %>
+    <%= submit_tag "Validate Word" %>
+<% end %>

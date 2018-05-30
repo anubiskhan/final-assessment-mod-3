@@ -9,7 +9,7 @@ describe 'User' do
       # When I visit "/"
       visit '/'
       # And I fill in a text box with "foxes"
-      fill_in 'word_search', with: 'foxes'
+      fill_in 'q', with: 'foxes'
       # And I click "Validate Word"
       click_on 'Validate Word'
       # Then I should see a message that says "'foxes' is a valid word and its root form is 'fox'."
@@ -22,7 +22,7 @@ describe 'User' do
       # When I visit "/"
       visit '/'
       # And I fill in a text box with "foxez"
-      fill_in 'word_search', with: 'foxez'
+      fill_in 'q', with: 'foxez'
       # And I click "Validate Word"
       click_on 'Validate Word'
       # Then I should see a message that says "'foxez' is not a valid word."
