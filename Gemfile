@@ -23,7 +23,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_bot_rails'
-  gem 'data'
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
 end
 
