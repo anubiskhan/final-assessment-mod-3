@@ -5,8 +5,11 @@ class Validation
   end
 
   def validates_word
-    conn = Faraday.new(url: 'https://od-api.oxforddictionaries.com/api/v1', headers: { app_id: '1147b3aa', app_key: 'adcf4ea870f603c0a5c507a901ab4f45' })
-    response = conn.get "/inflections/en/#{@word}"
+    conn = Faraday.new(url: "https://od-api.oxforddictionaries.com/api/v1/inflections/en/#{@word}")
+    resp = conn.get do |conn|
+      conn.headers['app_id'] = ENV['OXFORD_ID']
+      conn.headers['app_key'] = ENV['SCRABBLE_KEY']
+    end
     binding.pry
   end
 end
