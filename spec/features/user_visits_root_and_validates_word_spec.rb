@@ -17,7 +17,7 @@ describe 'User' do
       #
     end
 
-    it 'invalidates due to not being a word' do
+    xit 'invalidates due to not being a word' do
       # As a guest user
       # When I visit "/"
       visit '/'

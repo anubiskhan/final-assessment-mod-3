@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
   def index
-    
+
   end
 
   def new
-    binding.pry
+    Validation.new(params[:q])
   end
 end
