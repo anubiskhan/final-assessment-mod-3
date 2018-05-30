@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :games
+      get '/games/:id', to: 'games#show'
+      post '/games/:id/plays', to: 'plays#create'
     end
   end
 
