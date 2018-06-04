@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      get '/games/:id', to: 'games#show'
-      post '/games/:id/plays', to: 'plays#create'
+      resources :games, only: [:show] do
+        post '/plays', to: 'games/plays#create'
+      end
     end
   end
 
   root "welcome#index"
-  resources :validations, only: [:show, :new]
+  get '/validations', to: 'validations#show'
   resources :welcome, only: [:new]
 end
